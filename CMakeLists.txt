@@ -17,10 +17,14 @@ FetchContent_MakeAvailable(rtac_asio)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
-# Compile driver
+# Compile the driver
 add_executable(${PROJECT_NAME} src/riptide_battery.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json rtac_asio)
 ament_target_dependencies(${PROJECT_NAME} rclcpp sensor_msgs)
+
+install(TARGETS
+  ${PROJECT_NAME}
+  DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
