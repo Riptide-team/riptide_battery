@@ -46,7 +46,7 @@ void RiptideBattery::serial_callback(
 
 RiptideBattery::RiptideBattery() : Node("riptide_battery") {
     // Get port and baudrate from parameters
-    this->declare_parameter("port", "/dev/ttyUSB0");
+    this->declare_parameter("port", "/dev/BatteryCard");
     this->declare_parameter("baudrate", 115200);
 
     // Creating the message
