@@ -22,6 +22,7 @@ void RiptideBattery::serial_callback(
                 RCLCPP_DEBUG(this->get_logger(), "Count: %ld, Received: %s", count, (*data).substr(0, count).c_str());
 
                 // Filling the message
+                battery_msg_.header.stamp = this->now();
                 battery_msg_.voltage = json_data["volt"];
                 battery_msg_.current = json_data["current"];
 
