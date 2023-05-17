@@ -18,7 +18,7 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 
 # Compile driver
-add_executable(${PROJECT_NAME} SHARED src/riptide_battery.cpp)
+add_executable(${PROJECT_NAME} src/riptide_battery.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json rtac_asio)
 ament_target_dependencies(${PROJECT_NAME} rclcpp sensor_msgs)
